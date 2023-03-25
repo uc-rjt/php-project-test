@@ -88,7 +88,11 @@ li:last-child{
     <form class='mt-5'>
     <p><strong class='queNo'>1</strong>. <span id='displayQuestion'>Question</span></p>
 
-        <div class="form-check">
+    <div class='options'>
+
+    </div>
+
+        <!-- <div class="form-check">
         <label class="form-check-label">
             <input id='option_1' type="radio" class="form-check-input" name="optradio"><span class='answer_input' id='displayOption1'>Option 1</span>
         </label>
@@ -110,7 +114,7 @@ li:last-child{
         <label class="form-check-label">
             <input id='option_4' type="radio" class="form-check-input" name="optradio"><span class='answer_input' id='displayOption4'>Option 4</span>
         </label>
-        </div>
+        </div> -->
         <!-- <input type="radio">
         <input type="radio">
         <input type="radio">
@@ -212,6 +216,23 @@ li:last-child{
     var questionAnswers = JSON.parse(data[jsindex].content_text);
 
     $('#displayQuestion').text(questionAnswers.question);
+
+    // make options dynamically START
+    let optionsHtml = ``;
+    for(let i=0;i<questionAnswers.answers.length;i++){
+        optionsHtml += `<div class="form-check">
+        <label class="form-check-label">
+            <input id='option_${i+1}' type="radio" class="form-check-input" name="optradio"><span class='answer_input' id='displayOption${i+1}'>Option ${i+1}</span>
+        </label>
+        </div>
+        `;
+
+    }
+    console.log('optionsHtml:', optionsHtml);
+    $('.options').append(optionsHtml);
+    console.log('.options:',$('.options'));
+    // make options dynamically END
+    
 
     for(let i=0;i<questionAnswers.answers.length;i++){
                 $(`#displayOption${i+1}`).text(questionAnswers.answers[i].answer);
