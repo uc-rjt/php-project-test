@@ -465,7 +465,7 @@ $('.form-check-input')[i].click();
             // console.log('sideQueColor:',$(`#sideQue${jsindex+1}`).toggleClass('text-primary'));
             // $(`#sideQue${jsindex+1}`).removeClass('text-dark');
 
-            // $('#displayQuestion').text(questionAnswers.question);
+            $('#displayQuestion').text(questionAnswers.question);
 
             for(let i=0;i<questionAnswers.answers.length;i++){
                 $(`#displayOption${i+1}`).text(questionAnswers.answers[i].answer);
