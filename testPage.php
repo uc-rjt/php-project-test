@@ -41,6 +41,10 @@ li{
     cursor: pointer;
 }
 
+ol { 
+    list-style-type: decimal-leading-zero;
+}
+
 ol > li::marker {
   font-weight: bold;
 }
@@ -86,7 +90,7 @@ li:last-child{
 
 
     <form class='mt-5'>
-    <p><strong class='queNo'>1</strong>. <span id='displayQuestion'>Question</span></p>
+    <p><strong class='queNo'>01</strong>. <span id='displayQuestion'>Question</span></p>
 
     <div class='options'>
 
@@ -132,7 +136,7 @@ li:last-child{
     <button id='slide-button' class='px-4 mx-2 py-2 btn btn-success slide-button'>List</button>
     <button id='prev' class='px-4 mx-2 py-2 btn btn-outline-primary'>Previous</button>
 
-    <button class='border-0 bg-transparent'><span class='queNo'>1</span> of 11</button>
+    <button class='border-0 bg-transparent'><span class='queNo'>01</span> of <span class='totalQue'>11</span></button>
 
     <button id='next' class='px-4 mx-2 py-2 btn btn-outline-primary'>Next</button>
     <button id='endTest' class='px-4 mx-2 py-2 btn btn-danger' data-toggle="modal" data-target="#myModal">End Test</button>
@@ -217,6 +221,10 @@ li:last-child{
 
     $('#displayQuestion').text(questionAnswers.question);
 
+    // display totalQue
+
+    $('.totalQue').text(data.length<=9?`0${data.length}`:data.length);
+
     // make options dynamically START
     let optionsHtml = ``;
     for(let i=0;i<questionAnswers.answers.length;i++){
@@ -253,7 +261,8 @@ li:last-child{
 
         
         $('#next').on('click', function(){
-            if(jsindex<10){
+            console.log('data.length:', data.length);
+            if(jsindex<data.length-1){
             jsindex++;
 
             $('.form-check-input').prop('checked', false);
@@ -275,7 +284,7 @@ li:last-child{
             // $('#displayOption3').text(questionAnswers.answers[2].answer);
             // $('#displayOption4').text(questionAnswers.answers[3].answer);
 
-            $('.queNo').text(jsindex+1);
+            $('.queNo').text(jsindex+1<=9?`0${jsindex+1}`:jsindex+1);
 
              // persisting values
              var prevValue = user_answers[jsindex];
@@ -302,12 +311,14 @@ $('.form-check-input')[i].click();
         }
 
             
-        }else if(jsindex==10){
+        }else if(jsindex==data.length-1){
             console.log('array end is reached');
             $('#next').prop('disabled', true);
 
             console.log('queno.', jsindex+1);
-            $('.queNo').text(jsindex+1);
+            $('.queNo').text(jsindex+1<=9?`0${jsindex+1}`:jsindex+1);
+
+            // $('.queNo').text(jsindex+1);
         }
 
         });
@@ -362,13 +373,15 @@ $('.form-check-input')[i].click();
             // $('#displayOption3').text(questionAnswers.answers[2].answer);
             // $('#displayOption4').text(questionAnswers.answers[3].answer);
             
-            $('.queNo').text(jsindex+1);
+            // $('.queNo').text(jsindex+1);
+            $('.queNo').text(jsindex+1<=9?`0${jsindex+1}`:jsindex+1);
+
 
             $('#next').prop('disabled', false);
 
             if(jsindex==0){
             $('#prev').prop('disabled', true)
-        }else if(jsindex==10){
+        }else if(jsindex==data.length-1){
             $('#next').prop('disabled', true)
         }
             
@@ -472,7 +485,9 @@ $('.form-check-input')[i].click();
             number++;
 
             console.log(number);
-            $('.queNo').text(number);
+            // $('.queNo').text(number);
+            $('.queNo').text(number<=9?`0${number}`:number);
+
 
             if(jsindex==0){
             $('#prev').prop('disabled', true)
