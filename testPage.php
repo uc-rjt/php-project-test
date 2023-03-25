@@ -609,6 +609,8 @@ $('.form-check-input')[i].click();
 
         // session storage 
         sessionStorage.setItem('user_answers',JSON.stringify(user_answers));
+        sessionStorage.setItem('correct_answers', JSON.stringify(correct_answers));
+
         console.log('session-triggered');
         // console.log(sessionStorage.setItem('user_answer',user_answers));
     });

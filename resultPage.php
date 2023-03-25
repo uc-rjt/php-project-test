@@ -88,30 +88,33 @@ $.getJSON('question.json', function(data){
 
     // checking answers
 
-    var correct_answers = [];
-        for(var i=0;i<data.length;i++){
-            questionAnswers = JSON.parse(data[i].content_text);
+    // var correct_answers = [];
+    //     for(var i=0;i<data.length;i++){
+    //         questionAnswers = JSON.parse(data[i].content_text);
 
             
-            for(var j=0;j<questionAnswers.answers.length;j++){
-            if(questionAnswers.answers[j].is_correct==1){
+    //         for(var j=0;j<questionAnswers.answers.length;j++){
+    //         if(questionAnswers.answers[j].is_correct==1){
                 
-                console.log(questionAnswers.answers[j].answer);
-                correct_answers.push(questionAnswers.answers[j].answer);
-            }
-        }
-        }
+    //             console.log(questionAnswers.answers[j].answer);
+    //             correct_answers.push(questionAnswers.answers[j].answer);
+    //         }
+    //     }
+    //     }
 
-        console.log('correct answers:', correct_answers);
+    //     console.log('correct answers:', correct_answers);
 
         // sessionStorage.setItem('user_answers',JSON.stringify(user_answers));
-        sessionStorage.setItem('correct_answers', JSON.stringify(correct_answers));
+        // sessionStorage.setItem('correct_answers', JSON.stringify(correct_answers));
 
 
-
+    var correct_answers = JSON.parse(sessionStorage.getItem('correct_answers'));
     var user_answers =  JSON.parse(sessionStorage.getItem('user_answers'));
 
-    console.log('user_answers:', user_answers);
+    console.log('correct_answers:',correct_answers);
+    console.log('user_answers:',user_answers);
+
+    // console.log('user_answers:', user_answers);
 
     var filtered_user_answers = user_answers.filter(Boolean);
 
