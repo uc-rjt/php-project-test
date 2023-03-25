@@ -47,7 +47,11 @@
 <form>
     <p><strong class='queNo'>1</strong>. <span id='displayQuestion'>Question</span></p>
 
-        <div class="form-check">
+    <div class='options'>
+
+</div>
+
+        <!-- <div class="form-check">
         <label class="form-check-label">
             <input id='option_1' type="radio" class="form-check-input" name="optradio"><span id='displayOption1'>Option 1</span>
         </label>
@@ -69,7 +73,7 @@
         <label class="form-check-label">
             <input id='option_4' type="radio" class="form-check-input" name="optradio"><span id='displayOption4'>Option 4</span>
         </label>
-        </div>
+        </div> -->
         <!-- <input type="radio">
         <input type="radio">
         <input type="radio">
@@ -163,6 +167,25 @@
 
     // display question
     $('#displayQuestion').text(questionAnswers.question);
+
+    // make options dynamically START
+    let optionsHtml = ``;
+    for(let i=0;i<questionAnswers.answers.length;i++){
+        optionsHtml += `<div class="form-check">
+        <label class="form-check-label">
+            <input id='option_${i+1}' type="radio" class="form-check-input" name="optradio"><span class='answer_input' id='displayOption${i+1}'>Option ${i+1}</span>
+        </label>
+        </div>
+        `;
+
+    }
+    console.log('optionsHtml:', optionsHtml);
+    $('.options').append(optionsHtml);
+    console.log('.options:',$('.options'));
+
+
+
+
 
     // display options
     for(let i=0;i<questionAnswers.answers.length;i++){
