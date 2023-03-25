@@ -536,7 +536,67 @@ $('.form-check-input')[i].click();
         }
 
     })
+
+   
+
+
+    // hide sideList when clicked outside START
+
+    window.addEventListener('click', function(e){   
+        let _opened = $('#local-navbar').hasClass('show');
+
+  if (_opened===true && !document.getElementById('local-navbar').contains(e.target) && !document.getElementById('slide-button').contains(e.target)){
+    // Clicked in box
+    console.log('clicked outside sidelist');
+    // $('#slide-button').click();
+    $('#local-navbar').toggleClass('show')
+
+
+    console.log(_opened);
+  } 
+});
+
+    // $('.outsideList').on('click', function(){
+    //     console.log('clicked outside list');
+
+    //     let _opened = $('#local-navbar').hasClass('show');
+
+    //     if(_opened===true){
+    //         $('#slide-button').click();
+    //         console.log(_opened);
+    //     }
+
+    // });
+
+//     $(document).ready(function(){
+//     $(document).click(function (event) {
+//         let clickover = $(event.target);
+//         let _opened = $('#local-navbar').hasClass('show');
+
+        
+//         if (_opened === true && !clickover.hasClass("local-navbar")) {
+//             // console.log(_opened);
+//             // $("button.navbar-toggle").click();
+//             // $('#slide-button').click();
+//             // $('#local-navbar').removeClass('show');
+//         }
+
+//     });
+// })
+//     console.log('sidebarContainer:', sidebarContainer);
+// $(document).click(function(e){
+//         let sidebarContainer = $('#local-navbar');
+
+//         // if the target of the click isn't the container nor a descendant of the container
+//     if (!sidebarContainer.is(e.target) && sidebarContainer.has(e.target).length === 0){
+//         $('#slide-button').click();
+//         console.log('outside the sideList');
+
+//     }
+
+//     })
     
+    // hide sideList when clicked outside END
 
     console.log(listItem);
 
@@ -686,6 +746,10 @@ $('.form-check-input')[i].click();
 //     }, 1000);
 
 
+ // hide sideList when clicked elsewhere
+    
+ 
+
 var timer2 = "30:00";
 var interval = setInterval(function() {
 
@@ -719,6 +783,7 @@ var interval = setInterval(function() {
 
 
 
+    
 
 
 
