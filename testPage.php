@@ -181,7 +181,7 @@ li:last-child{
 
       <!-- Modal footer -->
       <div class="modal-footer">
-          <button type="button" class="btn btn-warning text-white" data-dismiss="modal">Go back</button>
+          <button type="button" class="btn btn-warning text-white" data-dismiss="modal">Close</button>
           <a id='finalEndTest' href='resultPage.php' class='btn btn-danger'>End Test</a>
       </div>
 
@@ -401,12 +401,27 @@ $('.form-check-input')[i].click();
      var sideListItem = ``;
 
      for(var i=0;i<data.length;i++){
-        sideListItem += `<li class='mt-3 pb-2 border-bottom'><a class='h6 text-dark text-decoration-none' id='sideQue${i+1}' value='${i}'>${data[i].snippet}</a></li>`
+        sideListItem += `<li class='mt-3 pb-2 border-bottom side-list-item'><a class='h6 text-dark text-decoration-none' id='sideQue${i+1}' value='${i}'>${data[i].snippet}</a></li>`
      }
 
-     console.log(sideListItem);
+    //  console.log('sideListItem:',sideListItem[0]);
 
-     $('ol').html(sideListItem);
+    
+    
+    // console.log('side-list-item:', ($('.side-list-item'))[0]);
+    
+    //  sideListItem[0].addClass('text-primary');
+    
+    $('ol').html(sideListItem);
+    // $('.side-list-item')[0].addClass('text-primary');
+
+    console.log('sideQue1',$('#sideQue1'));
+
+    // change color of selected side que
+    $('#sideQue1').toggleClass('text-primary');
+    $('#sideQue1').removeClass('text-dark');
+
+    // console.log('side-list-item:', $('.side-list-item')[0]);
 
 
 
@@ -422,6 +437,10 @@ $('.form-check-input')[i].click();
 
     $('a').on('click', function(e){
         // console.log('jquery event:',$(e.target).attr('value'));
+
+        console.log("$('a'):",$('a'));
+
+       
         
         $('.form-check-input').prop('checked', false);
 
@@ -432,7 +451,21 @@ $('.form-check-input')[i].click();
         jsindex = $(e.target).attr('value');
             questionAnswers = JSON.parse(data[jsindex].content_text);
 
-            $('#displayQuestion').text(questionAnswers.question);
+            // sideQue highlight START
+
+            for(let i=0;i<data.length;i++){
+                $(`#sideQue${i+1}`).removeClass('text-primary');
+                $(`#sideQue${i+1}`).addClass('text-dark');
+            }
+
+            $(e.target).addClass('text-primary');
+            $(e.target).removeClass('text-dark');
+            // sideQue highlight END
+
+            // console.log('sideQueColor:',$(`#sideQue${jsindex+1}`).toggleClass('text-primary'));
+            // $(`#sideQue${jsindex+1}`).removeClass('text-dark');
+
+            // $('#displayQuestion').text(questionAnswers.question);
 
             for(let i=0;i<questionAnswers.answers.length;i++){
                 $(`#displayOption${i+1}`).text(questionAnswers.answers[i].answer);
