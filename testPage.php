@@ -278,6 +278,17 @@ li:last-child{
                 $(`#option_${i+1}`).val(questionAnswers.answers[i].answer);
 
             }
+
+            // sideQue highlight START
+
+            for(let i=0;i<data.length;i++){
+                $(`#sideQue${i+1}`).removeClass('text-primary');
+                $(`#sideQue${i+1}`).addClass('text-dark');
+            }
+
+            $(`#sideQue${jsindex+1}`).addClass('text-primary');
+            $(`#sideQue${jsindex+1}`).removeClass('text-dark');
+            // sideQue highlight END
             
             // $('#displayOption1').text(questionAnswers.answers[0].answer);
             // $('#displayOption2').text(questionAnswers.answers[1].answer);
@@ -306,7 +317,7 @@ $('.form-check-input')[i].click();
             if(jsindex==0){
             $('#prev').prop('disabled', true)
             
-        }else if(jsindex==10){
+        }else if(jsindex==data.length-1){
             $('#next').prop('disabled', true)
         }
 
@@ -353,6 +364,17 @@ $('.form-check-input')[i].click();
                 $(`#option_${i+1}`).val(questionAnswers.answers[i].answer);
 
             }
+
+            // sideQue highlight START
+
+            for(let i=0;i<data.length;i++){
+                $(`#sideQue${i+1}`).removeClass('text-primary');
+                $(`#sideQue${i+1}`).addClass('text-dark');
+            }
+
+            $(`#sideQue${jsindex+1}`).addClass('text-primary');
+            $(`#sideQue${jsindex+1}`).removeClass('text-dark');
+            // sideQue highlight END
 
             // persisting values
             var prevValue = user_answers[jsindex];
