@@ -47,7 +47,7 @@
 
     <thead>
         <th>S.no.</th>
-        <th>Qustion snippet</th>
+        <th>Question snippet</th>
         <th>Answer</th>
         <th>Status</th>
     </thead>
@@ -182,7 +182,7 @@ for(var i=0;i<data.length;i++){
     //     // &&(user_answers[i]==correct_answers[i]?'Correct':'Incorrect')
     // }</td></tr>`;
 
-    tabrow += `<tr><td>${i+1}</td><td><a href='reviewPage.php?que_index=${i}' class='text-dark text-decoration-none'>${data[i].snippet}</a></td><td class='text-center'>
+    tabrow += `<tr><td>${(i+1)<=9?`0${i+1}`:i+1}</td><td><a href='reviewPage.php?que_index=${i}' class='text-dark text-decoration-none'>${data[i].snippet}</a></td><td class='text-center'>
     <span class='h6' id='option_${i}_1'>A</span> <span class='h6' id='option_${i}_2'>B </span> <span class='h6' id='option_${i}_3'>C </span> <span class='h6' id='option_${i}_4'>D </span </td><td>${
 
        
