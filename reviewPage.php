@@ -36,7 +36,7 @@
 <div class='row mt-3'>
 <div class='col-12'>
     <center>
-<h3 id='que_status' class='text-dark text-center rounded'>Incorrect</h3>
+<h3 id='que_status' class='text-dark text-center rounded'></h3>
 </center>
 </div>
 
@@ -84,6 +84,26 @@
 
 
 
+
+<div class="d-flex justify-content-end fixed-bottom bg-light py-3 border-top border-dark">
+
+    <div class='mr-5'>
+    <!-- <button class='countdown px-4 mx-2 border-0 bg-transparent'><span id='timer' class='js-timeout'>30:00</span></button> -->
+
+    <button id='slide-button' class='px-4 mx-2 py-2 btn btn-success slide-button'>List</button>
+    <a id='prev' class='px-4 mx-2 py-2 btn btn-outline-primary'>Previous</a>
+
+    <button class='border-0 bg-transparent'><span class='queNo'>01</span> of <span class='totalQue'>11</span></button>
+
+    <a id='next' class='px-4 mx-2 py-2 btn btn-outline-primary'>Next</a>
+    <button id='endTest' class='px-4 mx-2 py-2 btn btn-danger' data-toggle="modal" data-target="#myModal">Results</button>
+    <button id='goBack' class='px-4 mx-2 py-2 btn btn-warning text-white' data-toggle="modal" data-target="#myModal">Go Back</button>
+</div>
+
+
+
+</div>
+
 </div>
 
 
@@ -105,15 +125,19 @@
 <div class='col-12'>
 
         
-        <div class='container d-flex justify-content-end mt-5 fixed-bottom '>
+        <!-- <div class='container d-flex justify-content-end mt-5 fixed-bottom '>
             <a href='/php-project/resultPage.php' class='btn m-2 btn-danger btn-lg'>Results</a>
             <a href='/php-project/index.php' class='btn m-2 btn-warning btn-lg text-white'> Go Back</a> 
-        </div>
+        </div> -->
+
+        
     
 
 </div>
 
 </div>
+
+
 
 </div>
 
@@ -142,6 +166,22 @@
   console.log(queries.que_index);
   jsindex = Number(queries.que_index);
 
+//   disable next-prev as per jsindex
+  if(jsindex==0){
+    console.log('jsindex==0: ', jsindex);
+    $('#prev').prop('disabled', true);
+    $('#prev').addClass('disabled');
+  }else  if(jsindex==10){
+        console.log('jsindex==10: ',jsindex);
+        $('#next').prop('disabled', true);
+        $('#next').addClass('disabled');
+
+            }
+
+  
+
+
+
     var questionAnswers = JSON.parse(data[jsindex].content_text);
 
     console.log(questionAnswers);
@@ -163,7 +203,7 @@
     
 
     // display que. no.
-    $('.queNo').text(jsindex+1);
+    $('.queNo').text(jsindex+1<=9?`0${jsindex+1}`:jsindex+1);
 
     // display question
     $('#displayQuestion').text(questionAnswers.question);
@@ -248,6 +288,51 @@
         sessionStorage.clear();
 
     });
+
+    // next-prev functionality
+    $('#next').on('click', function(){
+        // if(jsindex==10){
+        //         $('#next').prop('disabled', true);
+        //     }
+
+        
+            if(jsindex<data.length-1){
+        $('#next').attr('href', `reviewPage.php?que_index=${jsindex+1}`);
+        // $('#next').click();
+        
+
+    }
+    // else if(jsindex == data.length-1){
+    //     console.log('array end is reached');
+    //         $('#next').prop('disabled', true);
+    //             $('#next').addClass('disabled');
+    //     }
+    //     else{
+    //             $('#next').prop('disabled', true);
+    //             $('#next').addClass('disabled');
+
+    // }
+
+    });
+
+    $('#prev').on('click', function(){
+        // if(jsindex==10){
+        //         $('#next').prop('disabled', true);
+        //     }
+
+        
+            if(jsindex>0){
+        $('#prev').attr('href', `reviewPage.php?que_index=${jsindex-1}`);
+        // $('#next').click();
+    }
+    
+    // else if(jsindex==0){
+    //     $('#prev').prop('disabled', true);
+    //     $('#prev').addClass('disabled');
+    // }
+
+    });
+
         });
 
   
