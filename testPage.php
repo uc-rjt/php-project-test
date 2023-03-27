@@ -4,6 +4,17 @@
     <title>Test Page</title>
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+
+    <script>
+        function preventBack() {
+            window.history.forward(); 
+        }
+          
+        setTimeout("preventBack()", 0);
+          
+        window.onunload = function () { null };
+        </script>
+
 </head>
 
 <style>
@@ -749,8 +760,6 @@ $('.form-check-input')[i].click();
         sessionStorage.clear();
 
     });
-
-
 
    
 
