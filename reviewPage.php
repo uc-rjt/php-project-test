@@ -6,10 +6,64 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
 
     <style>
+        seq:before {
+
+content: attr(no);
+
+}
+
         .form-check{
             pointer-events: none;
         }
         #que_status { width:20%; } 
+
+        .local-navbar {
+  /* background-color: #191E38; */
+  border-radius: 0 .25rem .25rem 0;
+  display: flex;
+  flex-direction: column;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  padding-top: 0rem;
+  position: absolute;
+  left: -475px;
+  transition: all .24s ease-in;
+  width: 475px;
+  font-size: 12px;
+  position: absolute;
+  overflow: scroll;
+  z-index: 99;
+  top: 0;
+  height: 90vh;
+}
+
+.show {
+  left:0;
+}
+
+li{
+    cursor: pointer;
+}
+
+ol { 
+    list-style-type: decimal-leading-zero;
+}
+
+ol > li::marker {
+  font-weight: bold;
+}
+
+li:last-child{
+    /* border-bottom: 2px solid red; */
+    margin-bottom: none;
+}
+
+#local-navbar {
+    overflow-x: hidden;
+    padding-top: none;
+}
+
+
 
 
     </style>
@@ -44,6 +98,15 @@
 
 
 <div class='container'>
+
+        <!-- side panel START-->
+    <div id="local-navbar" class="local-navbar card card-body bg-light">     
+            <ol class='mb-0'>
+            </ol>
+  </div>
+
+    <!-- side panel END-->
+
 <form>
     <p><strong class='queNo'></strong>. <span id='displayQuestion'></span></p>
 
@@ -229,8 +292,9 @@
 
     // display options
     for(let i=0;i<questionAnswers.answers.length;i++){
-                $(`#displayOption${i+1}`).text(questionAnswers.answers[i].answer);
-                $(`#option_${i+1}`).val(questionAnswers.answers[i].answer);
+                $(`#displayOption${i+1}`).html(questionAnswers.answers[i].answer);
+                $(`#displayOption${i+1}`).attr('value',questionAnswers.answers[i].id);
+                $(`#option_${i+1}`).val(questionAnswers.answers[i].id);
             }
 
             // console.log('user_answers',user_answers);
@@ -278,7 +342,7 @@
 
     // display Explanation
     // console.log(questionAnswers.explanation);
-            $('#displayExplanation').text(questionAnswers.explanation);
+            $('#displayExplanation').html(questionAnswers.explanation);
 
             
 
@@ -333,7 +397,50 @@
 
     });
 
+     // side panel
+     $('#slide-button').click( function() {
+        $('#local-navbar').toggleClass('show');
+     });
+
+     var sideListItem = ``;
+
+     for(var i=0;i<data.length;i++){
+        sideListItem += `<li class='mt-3 pb-2 border-bottom side-list-item'><a class='h6 text-dark text-decoration-none' id='sideQue${i+1}' href="reviewPage.php?que_index=${i}" value='${i}'>${data[i].snippet}</a></li>`
+     }
+
+    $('ol').html(sideListItem);
+
+     // sideQue highlight START
+
+     for(let i=0;i<data.length;i++){
+                $(`#sideQue${i+1}`).removeClass('text-primary');
+                $(`#sideQue${i+1}`).addClass('text-dark');
+            }
+
+            $(`#sideQue${jsindex+1}`).addClass('text-primary');
+            $(`#sideQue${jsindex+1}`).removeClass('text-dark');
+            // sideQue highlight END
+
+     // hide sideList when clicked outside START
+
+     window.addEventListener('click', function(e){   
+        let _opened = $('#local-navbar').hasClass('show');
+
+  if (_opened===true && !document.getElementById('local-navbar').contains(e.target) && !document.getElementById('slide-button').contains(e.target)){
+    // Clicked in box
+    console.log('clicked outside sidelist');
+    // $('#slide-button').click();
+    $('#local-navbar').toggleClass('show')
+
+
+    console.log(_opened);
+  } 
+});
+
+
         });
+
+
 
   
 

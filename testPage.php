@@ -59,6 +59,12 @@ li:last-child{
     padding-top: none;
 }
 
+seq:before {
+
+content: attr(no);
+
+}
+
     
 </style>
 
@@ -243,8 +249,9 @@ li:last-child{
     
 
     for(let i=0;i<questionAnswers.answers.length;i++){
-                $(`#displayOption${i+1}`).text(questionAnswers.answers[i].answer);
-                $(`#option_${i+1}`).val(questionAnswers.answers[i].answer);
+                $(`#displayOption${i+1}`).html(questionAnswers.answers[i].answer);
+                $(`#displayOption${i+1}`).attr('value',questionAnswers.answers[i].id);
+                $(`#option_${i+1}`).val(questionAnswers.answers[i].id);
             }
 
     // $('#displayOption1').text(questionAnswers.answers[0].answer);
@@ -274,8 +281,10 @@ li:last-child{
             $('#displayQuestion').text(questionAnswers.question);
 
             for(let i=0;i<questionAnswers.answers.length;i++){
-                $(`#displayOption${i+1}`).text(questionAnswers.answers[i].answer);
-                $(`#option_${i+1}`).val(questionAnswers.answers[i].answer);
+                $(`#displayOption${i+1}`).html(questionAnswers.answers[i].answer);
+                $(`#displayOption${i+1}`).attr('value',questionAnswers.answers[i].id);
+
+                $(`#option_${i+1}`).val(questionAnswers.answers[i].id);
 
             }
 
@@ -360,8 +369,10 @@ $('.form-check-input')[i].click();
             console.log('option length',questionAnswers.answers.length);
 
             for(let i=0;i<questionAnswers.answers.length;i++){
-                $(`#displayOption${i+1}`).text(questionAnswers.answers[i].answer);
-                $(`#option_${i+1}`).val(questionAnswers.answers[i].answer);
+                $(`#displayOption${i+1}`).html(questionAnswers.answers[i].answer);
+                $(`#displayOption${i+1}`).attr('value',questionAnswers.answers[i].id);
+
+                $(`#option_${i+1}`).val(questionAnswers.answers[i].id);
 
             }
 
@@ -490,8 +501,9 @@ $('.form-check-input')[i].click();
             $('#displayQuestion').text(questionAnswers.question);
 
             for(let i=0;i<questionAnswers.answers.length;i++){
-                $(`#displayOption${i+1}`).text(questionAnswers.answers[i].answer);
-                $(`#option_${i+1}`).val(questionAnswers.answers[i].answer);
+                $(`#displayOption${i+1}`).html(questionAnswers.answers[i].answer);
+                $(`#displayOption${i+1}`).attr('value',questionAnswers.answers[i].id);
+                $(`#option_${i+1}`).val(questionAnswers.answers[i].id);
             }
 
               // persisting values
@@ -671,8 +683,8 @@ $('.form-check-input')[i].click();
             for(var j=0;j<questionAnswers.answers.length;j++){
             if(questionAnswers.answers[j].is_correct==1){
                 
-                console.log(questionAnswers.answers[j].answer);
-                correct_answers.push(questionAnswers.answers[j].answer);
+                console.log(questionAnswers.answers[j].id);
+                correct_answers.push(questionAnswers.answers[j].id);
             }
         }
         }
@@ -692,9 +704,9 @@ $('.form-check-input')[i].click();
             var attempted = 0;
             
         $('.answer_input').on('click', function(e){
-            console.log(e.target.innerText);
+            console.log($(e.target).attr('value'));
 
-            user_answers[jsindex] = e.target.innerText;
+            user_answers[jsindex] = $(e.target).attr('value');
             console.log('user_answers:',user_answers);
 
             filtered_user_answers = user_answers.filter(Boolean);

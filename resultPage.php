@@ -226,7 +226,7 @@ for(let i=0;i<data.length;i++){
                 // put red color to incorrect_answers
                 // if(questionAnswers.answers[j].answer == user_answers[i] && user_answers[i]!=)
 
-            }else if(questionAnswers.answers[j].is_correct!=1 && questionAnswers.answers[j].answer==user_answers[i]){
+            }else if(questionAnswers.answers[j].is_correct!=1 && questionAnswers.answers[j].id==user_answers[i]){
                 $(`#option_${i}_${j+1}`).addClass('text-danger');
 
             }
