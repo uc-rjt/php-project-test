@@ -76,7 +76,7 @@ li:last-child{
     <div class='p-2'>
         <div class='row w-100'>
             <div class='col-2'>
-            <a href='index.php'><img id='reset' src='https://www.ucertify.com/layout/themes/bootstrap4/images/logo/ucertify_logo.png'></a>
+            <a href='index.php'><img class='clearSession' src='https://www.ucertify.com/layout/themes/bootstrap4/images/logo/ucertify_logo.png'></a>
 </div>
 
 <div class='col-8'>
@@ -160,7 +160,7 @@ li:last-child{
 
     <a id='next' class='px-4 mx-2 py-2 btn btn-outline-primary'>Next</a>
     <a id='results' class='px-4 mx-2 py-2 btn btn-danger' href='/php-project/resultPage.php'>Results</a>
-    <a id='goBack' class='px-4 mx-2 py-2 btn btn-warning text-white' href='/php-project/index.php'>Go Back</a>
+    <a class='clearSession px-4 mx-2 py-2 btn btn-warning text-white' href='/php-project/index.php'>Go Back</a>
 </div>
 
 
@@ -347,7 +347,7 @@ li:last-child{
             
 
             // reset session
-    $('#reset').on('click', function(){
+    $('.clearSession').on('click', function(){
         console.log('session clear triggered');
         sessionStorage.clear();
 

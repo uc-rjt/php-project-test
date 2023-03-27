@@ -12,7 +12,7 @@
     <div class='p-2'>
         <div class='row w-100'>
             <div class='col-2'>
-            <a href='index.php'><img id=reset src='https://www.ucertify.com/layout/themes/bootstrap4/images/logo/ucertify_logo.png'></a>
+            <a href='index.php'><img class='clearSession' src='https://www.ucertify.com/layout/themes/bootstrap4/images/logo/ucertify_logo.png'></a>
 </div>
 
 <div class='col-8'>
@@ -65,7 +65,7 @@
     
     <div class='d-flex justify-content-end'>
             <!-- <a href='/php-project/resultPage.php' class='btn m-2 btn-danger btn-lg'>Results</a> -->
-            <a href='/php-project/index.php' class='btn my-2 mr-0 btn-warning btn-lg text-white'> Go Back</a> 
+            <a href='/php-project/index.php' class='btn my-2 mr-0 btn-warning btn-lg text-white clearSession'> Go Back</a> 
         </div>
 
 
@@ -149,7 +149,7 @@ $.getJSON('question.json', function(data){
 
 
     // reset session
-    $('#reset').on('click', function(){
+    $('.clearSession').on('click', function(){
         console.log('session clear triggered');
         sessionStorage.clear();
 

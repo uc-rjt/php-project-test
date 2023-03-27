@@ -6,13 +6,18 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
 
     <script>
-        function preventBack() {
-            window.history.forward(); 
+        // function preventBack() {
+        //     window.history.forward(); 
+        // }
+          
+        // setTimeout("preventBack()", 0);
+          
+        // window.onunload = function () { null };
+
+        window.history.forward();
+        function noBack() {
+            window.history.forward();
         }
-          
-        setTimeout("preventBack()", 0);
-          
-        window.onunload = function () { null };
         </script>
 
 </head>
@@ -222,6 +227,52 @@ content: attr(no);
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
 
 <script>
+    var timer2 = "00:05";
+
+    // function end_test(){
+    //     setInterval(() => {
+    //         document.getElementById('finalEndTest').click();
+    // // $('#finalEndTest').click();
+    // //     }, 3000);
+    // // }
+    //     });
+    // }
+
+var interval = setInterval(function() {
+
+
+  var timer = timer2.split(':');
+  //by parsing integer, I avoid all extra string processing
+  var minutes = parseInt(timer[0], 10);
+  var seconds = parseInt(timer[1], 10);
+  --seconds;
+  minutes = (seconds < 0) ? --minutes : minutes;
+  if (minutes < 0 && seconds==00) clearInterval(interval);
+  seconds = (seconds < 0) ? 59 : seconds;
+  seconds = (seconds < 10) ? '0' + seconds : seconds;
+  //minutes = (minutes < 10) ?  minutes : minutes;
+  $('#timer').html(minutes + ':' + seconds);
+  timer2 = minutes + ':' + seconds;
+
+  if(minutes=='0' && seconds=='00'){
+    
+    // console.log('timer ended');
+    $('#endTest').click();
+    window.location.href = "resultPage.php";
+    // end_test();
+    // $('#finalEndTest').click();
+
+
+    // console.log('#finalEndTest: ',$('#finalEndTest').click());
+    // $('#finalEndTest').click();
+    // window.location.replace("resultPage.php");
+    // endTest();
+    // $('#finalEndTest').click();
+    $(location).attr('href', 'resultPage.php');
+    clearInterval(interval);
+  }
+}, 1000);
+
 
    var jsindex = 0;
 
@@ -754,7 +805,6 @@ $('.form-check-input')[i].click();
     });
 
     // session reset
-
     $('#reset').on('click', function(){
         console.log('session clear triggered');
         sessionStorage.clear();
@@ -791,32 +841,46 @@ $('.form-check-input')[i].click();
 
  // hide sideList when clicked elsewhere
     
+//  function endTest(){
+//     // $('#finalEndTest').click();
+//     window.location.replace("resultPage.php");
+//  }
  
 
-var timer2 = "30:00";
-var interval = setInterval(function() {
+// var timer2 = "00:05";
+// var interval = setInterval(function() {
 
 
-  var timer = timer2.split(':');
-  //by parsing integer, I avoid all extra string processing
-  var minutes = parseInt(timer[0], 10);
-  var seconds = parseInt(timer[1], 10);
-  --seconds;
-  minutes = (seconds < 0) ? --minutes : minutes;
-  if (minutes < 0 && seconds==00) clearInterval(interval);
-  seconds = (seconds < 0) ? 59 : seconds;
-  seconds = (seconds < 10) ? '0' + seconds : seconds;
-  //minutes = (minutes < 10) ?  minutes : minutes;
-  $('#timer').html(minutes + ':' + seconds);
-  timer2 = minutes + ':' + seconds;
+//   var timer = timer2.split(':');
+//   //by parsing integer, I avoid all extra string processing
+//   var minutes = parseInt(timer[0], 10);
+//   var seconds = parseInt(timer[1], 10);
+//   --seconds;
+//   minutes = (seconds < 0) ? --minutes : minutes;
+//   if (minutes < 0 && seconds==00) clearInterval(interval);
+//   seconds = (seconds < 0) ? 59 : seconds;
+//   seconds = (seconds < 10) ? '0' + seconds : seconds;
+//   //minutes = (minutes < 10) ?  minutes : minutes;
+//   $('#timer').html(minutes + ':' + seconds);
+//   timer2 = minutes + ':' + seconds;
 
-  if(minutes=='0' && seconds=='00'){
+//   if(minutes=='0' && seconds=='00'){
     
-    console.log('timer ended');
-    $('#endTest').click();
-    clearInterval(interval);
-  }
-}, 1000);
+//     // console.log('timer ended');
+//     // $('#endTest').click();
+//     $('#finalEndTest').click();
+
+
+//     // console.log('#finalEndTest: ',$('#finalEndTest').click());
+//     // $('#finalEndTest').click();
+//     // window.location.replace("resultPage.php");
+//     // window.location.href = "resultPage.php";
+//     // endTest();
+//     // $('#finalEndTest').click();
+//     // $(location).attr('href', 'resultPage.php')
+//     clearInterval(interval);
+//   }
+// }, 1000);
 
 
 
