@@ -185,24 +185,22 @@
 
         $.getJSON('question.json', function (data) {
 
-            console.log(data);
-
             var queries = {};
             $.each(document.location.search.substr(1).split('&'), function (c, q) {
                 var i = q.split('=');
                 queries[i[0].toString()] = i[1].toString();
             });
 
-            console.log(queries.que_index);
+
             jsindex = Number(queries.que_index);
 
             //   disable next-prev as per jsindex
             if (jsindex == 0) {
-                console.log('jsindex==0: ', jsindex);
+
                 $('#prev').prop('disabled', true);
                 $('#prev').addClass('disabled');
             } else if (jsindex == 10) {
-                console.log('jsindex==10: ', jsindex);
+
                 $('#next').prop('disabled', true);
                 $('#next').addClass('disabled');
 
@@ -214,13 +212,13 @@
 
             var questionAnswers = JSON.parse(data[jsindex].content_text);
 
-            console.log(questionAnswers);
+
 
             // display question status
             var user_answers = JSON.parse(sessionStorage.getItem('user_answers'));
             var correct_answers = JSON.parse(sessionStorage.getItem('correct_answers'));
 
-            console.log('correct_answers from session:', correct_answers);
+
 
             if (user_answers[jsindex] && user_answers[jsindex] == correct_answers[jsindex]) {
                 $('#que_status').text('Correct').addClass('alert-success');
@@ -249,9 +247,9 @@
         `;
 
             }
-            console.log('optionsHtml:', optionsHtml);
+
             $('.options').append(optionsHtml);
-            console.log('.options:', $('.options'));
+
 
 
 
@@ -266,26 +264,26 @@
 
             var prevValue = user_answers[jsindex];
             var correctValue = correct_answers[jsindex];
-            console.log('prevValue', prevValue);
+
 
 
             for (let i = 0; i < questionAnswers.answers.length; i++) {
 
 
-                console.log('prevValue', prevValue);
+
 
 
 
                 // put green color to correct_answers
                 if ($('.form-check-input')[i].value == correctValue) {
-                    console.log('====green=======');
+
 
 
                     $(`#displayOption${i + 1}`).addClass('text-success');
                 }
 
                 if ($('.form-check-input')[i].value == prevValue) {
-                    console.log('====prev=======');
+
                     $('.form-check-input')[i].click();
 
 
@@ -310,7 +308,7 @@
 
             // reset session
             $('.clearSession').on('click', function () {
-                console.log('session clear triggered');
+
                 sessionStorage.clear();
 
             });
@@ -373,12 +371,8 @@
 
                 if (_opened === true && !document.getElementById('local-navbar').contains(e.target) && !document.getElementById('slide-button').contains(e.target)) {
                     // Clicked in box
-                    console.log('clicked outside sidelist');
-
                     $('#local-navbar').toggleClass('show')
 
-
-                    console.log(_opened);
                 }
             });
 
