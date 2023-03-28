@@ -200,7 +200,7 @@
         crossorigin="anonymous"></script>
 
     <script>
-        var timer2 = "00:05";
+        var timer2 = "30:00";
 
 
 
@@ -243,6 +243,8 @@
 
 
 
+
+
             var questionAnswers = JSON.parse(data[jsindex].content_text);
 
             $('#displayQuestion').text(questionAnswers.question);
@@ -256,7 +258,7 @@
             for (let i = 0; i < questionAnswers.answers.length; i++) {
                 optionsHtml += `<div class="form-check">
         <label class="form-check-label">
-            <input id='option_${i + 1}' type="radio" class="form-check-input" name="optradio"><span class='answer_input' id='displayOption${i + 1}'>Option ${i + 1}</span>
+            <input id='option_${i + 1}' type="radio" class="form-check-input answer_input" name="optradio"><span class='answer_input' id='displayOption${i + 1}'>Option ${i + 1}</span>
         </label>
         </div>
         `;
@@ -318,15 +320,20 @@
                     $('.queNo').text(jsindex + 1 <= 9 ? `0${jsindex + 1}` : jsindex + 1);
 
                     // persisting values
-                    var prevValue = user_answers[jsindex];
+                    // var prevValue = user_answers[jsindex] ? user_answers[jsindex] : (JSON.parse(sessionStorage.getItem('user_answers')))[jsindex];
+                    let userAnswer = JSON.parse(sessionStorage.getItem('user_answers'));
+                    let prevValue2 = userAnswer[jsindex];
+
+                    // console.log('prevValue2: ', prevValue2);
 
 
                     for (let i = 0; i < questionAnswers.answers.length; i++) {
 
 
-                        if ($('.form-check-input')[i].value == prevValue) {
+                        if ($('.form-check-input')[i].value == prevValue2) {
 
                             $('.form-check-input')[i].click();
+                            // $('.form-check-input')[i].prop('checked', true);
                         }
 
                     }
@@ -386,13 +393,19 @@
                     // sideQue highlight END
 
                     // persisting values
-                    var prevValue = user_answers[jsindex];
+                    // var prevValue = user_answers[jsindex];
+                    // var prevValue = user_answers[jsindex] ? user_answers[jsindex] : (JSON.parse(sessionStorage.getItem('user_answers')))[jsindex];
+                    // var prevValue = JSON.parse(sessionStorage.getItem('user_answers'))[jsindex];
+
+                    let userAnswer = JSON.parse(sessionStorage.getItem('user_answers'));
+                    let prevValue2 = userAnswer[jsindex];
+
 
 
                     for (let i = 0; i < questionAnswers.answers.length; i++) {
 
 
-                        if ($('.form-check-input')[i].value == prevValue) {
+                        if ($('.form-check-input')[i].value == prevValue2) {
 
                             $('.form-check-input')[i].click();
                         }
@@ -480,10 +493,12 @@
 
                 // persisting values
 
-                let user_option = user_answers[jsindex];
+                // let user_option = user_answers[jsindex];
 
 
 
+                let userAnswer = JSON.parse(sessionStorage.getItem('user_answers'));
+                let user_option = userAnswer[jsindex];
 
 
                 for (let i = 0; i < questionAnswers.answers.length; i++) {
@@ -573,7 +588,8 @@
 
 
 
-            var user_answers = [];
+            // var user_answers = [];
+            var user_answers = JSON.parse(sessionStorage.getItem('user_answers')) ? JSON.parse(sessionStorage.getItem('user_answers')) : [];
 
             var filtered_user_answers = [];
             var attempted = 0;
@@ -589,7 +605,14 @@
 
 
                 attempted = filtered_user_answers.length;
+
+                // setsession strorge when options are clicked
+                sessionStorage.setItem('user_answers', JSON.stringify(user_answers));
+
+
+
             });
+
 
             // check options
 
@@ -613,6 +636,34 @@
 
             });
 
+
+
+            // prev value click on reload
+            // let js = 0;
+            // // let prevValue1 = user_answers[js] ? user_answers[js] : (JSON.parse(sessionStorage.getItem('user_answers')))[js];
+            // var prevValue1 = JSON.parse(sessionStorage.getItem('user_answers'))[js];
+
+            // console.log(prevValue1);
+
+            let userAnswer1 = JSON.parse(sessionStorage.getItem('user_answers')) ? JSON.parse(sessionStorage.getItem('user_answers')) : [];
+            let prevValue2 = userAnswer1[0];
+
+
+            for (let i = 0; i < questionAnswers.answers.length; i++) {
+
+
+                if ($('.form-check-input')[i].value == prevValue2) {
+
+                    $('.form-check-input')[i].click();
+
+                    // console.log($('.form-check-input')[i]);
+                }
+
+
+            }
+
+
+
             // session reset
             $('#reset').on('click', function () {
                 sessionStorage.clear();
@@ -622,6 +673,7 @@
 
 
         });
+
 
 
 
