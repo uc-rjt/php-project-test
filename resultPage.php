@@ -106,17 +106,11 @@
 
             var correct_answers = JSON.parse(sessionStorage.getItem('correct_answers'));
             var user_answers = JSON.parse(sessionStorage.getItem('user_answers'));
-
-            console.log('correct_answers:', correct_answers);
-            console.log('user_answers:', user_answers);
-
-
-
             var filtered_user_answers = user_answers.filter(Boolean);
 
             var attempted = filtered_user_answers.length;
 
-            console.log('Attempted:', attempted);
+
 
             // display elements
 
@@ -135,7 +129,7 @@
                 }
             }
 
-            console.log('correct', correct);
+
 
             // display correct
             $('.displayCorrect').text(correct);
@@ -146,7 +140,7 @@
 
             // reset session
             $('.clearSession').on('click', function () {
-                console.log('session clear triggered');
+
                 sessionStorage.clear();
 
             });
@@ -154,11 +148,9 @@
 
             var percentage = (correct / data.length) * 100;
 
-            console.log('percentage:', percentage);
+
 
             var roundOffPercentage = Math.round(percentage * 100) / 100
-
-            console.log(roundOffPercentage);
 
 
             $('.displayResult').text(roundOffPercentage + '%');
@@ -170,7 +162,6 @@
             var tabrow = ``;
 
             for (var i = 0; i < data.length; i++) {
-                console.log('tabrow:', user_answers);
 
                 tabrow += `<tr><td>${(i + 1) <= 9 ? `0${i + 1}` : i + 1}</td><td><a href='reviewPage.php?que_index=${i}' class='text-dark text-decoration-none'>${data[i].snippet}</a></td><td class='text-center'>
     <span class='h6' id='option_${i}_1'>A</span> <span class='h6' id='option_${i}_2'>B </span> <span class='h6' id='option_${i}_3'>C </span> <span class='h6' id='option_${i}_4'>D </span </td><td>${user_answers[i] ? (user_answers[i] == correct_answers[i] ? 'Correct' : 'Incorrect') : 'Not attempted'
@@ -181,7 +172,7 @@
 
 
 
-            console.log(tabrow);
+
 
             // render html table
             $('tbody').html(tabrow);
@@ -192,14 +183,14 @@
             for (let i = 0; i < data.length; i++) {
                 let questionAnswers = JSON.parse(data[i].content_text);
 
-                console.log('questionAnswers:', questionAnswers);
+
 
                 for (let j = 0; j < questionAnswers.answers.length; j++) {
                     if (questionAnswers.answers[j].is_correct == 1) {
 
-                        console.log(j, questionAnswers.answers);
 
-                        console.log($(`#option_${i}_${j + 1}`));
+
+
 
                         $(`#option_${i}_${j + 1}`).addClass('text-success');
 
