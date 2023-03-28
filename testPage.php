@@ -6,13 +6,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
 
     <script>
-        // function preventBack() {
-        //     window.history.forward(); 
-        // }
-          
-        // setTimeout("preventBack()", 0);
-          
-        // window.onunload = function () { null };
+        
 
         window.history.forward();
         function noBack() {
@@ -118,33 +112,7 @@ content: attr(no);
 
     </div>
 
-        <!-- <div class="form-check">
-        <label class="form-check-label">
-            <input id='option_1' type="radio" class="form-check-input" name="optradio"><span class='answer_input' id='displayOption1'>Option 1</span>
-        </label>
-        </div>
-
-        <div class="form-check">
-        <label class="form-check-label">
-            <input id='option_2' type="radio" class="form-check-input" name="optradio"><span class='answer_input' id='displayOption2'>Option 2</span>
-        </label>
-        </div>
-
-        <div class="form-check">
-        <label class="form-check-label">
-            <input id='option_3' type="radio" class="form-check-input" name="optradio"><span class='answer_input' id='displayOption3'>Option 3</span>
-        </label>
-        </div>
-
-        <div class="form-check">
-        <label class="form-check-label">
-            <input id='option_4' type="radio" class="form-check-input" name="optradio"><span class='answer_input' id='displayOption4'>Option 4</span>
-        </label>
-        </div> -->
-        <!-- <input type="radio">
-        <input type="radio">
-        <input type="radio">
-        <input type="radio"> -->
+       
 
 
 </form>
@@ -229,14 +197,7 @@ content: attr(no);
 <script>
     var timer2 = "00:05";
 
-    // function end_test(){
-    //     setInterval(() => {
-    //         document.getElementById('finalEndTest').click();
-    // // $('#finalEndTest').click();
-    // //     }, 3000);
-    // // }
-    //     });
-    // }
+   
 
 var interval = setInterval(function() {
 
@@ -256,18 +217,10 @@ var interval = setInterval(function() {
 
   if(minutes=='0' && seconds=='00'){
     
-    // console.log('timer ended');
+    
     $('#endTest').click();
     window.location.href = "resultPage.php";
-    // end_test();
-    // $('#finalEndTest').click();
-
-
-    // console.log('#finalEndTest: ',$('#finalEndTest').click());
-    // $('#finalEndTest').click();
-    // window.location.replace("resultPage.php");
-    // endTest();
-    // $('#finalEndTest').click();
+    
     $(location).attr('href', 'resultPage.php');
     clearInterval(interval);
   }
@@ -316,13 +269,7 @@ var interval = setInterval(function() {
                 $(`#option_${i+1}`).val(questionAnswers.answers[i].id);
             }
 
-    // $('#displayOption1').text(questionAnswers.answers[0].answer);
-    // $('#displayOption2').text(questionAnswers.answers[1].answer);
-    // $('#displayOption3').text(questionAnswers.answers[2].answer);
-    // $('#displayOption4').text(questionAnswers.answers[3].answer);
-
-
-        // console.log(data.length);
+   
 
         
             $('#prev').prop('disabled', true)
@@ -336,9 +283,9 @@ var interval = setInterval(function() {
 
             $('.form-check-input').prop('checked', false);
 
-            // console.log(data[jsindex].content_text);
+            
              questionAnswers = JSON.parse(data[jsindex].content_text);
-            // console.log(JSON.parse(data[jsindex].content_text));
+            
             console.log(questionAnswers);
             $('#displayQuestion').text(questionAnswers.question);
 
@@ -361,22 +308,19 @@ var interval = setInterval(function() {
             $(`#sideQue${jsindex+1}`).removeClass('text-dark');
             // sideQue highlight END
             
-            // $('#displayOption1').text(questionAnswers.answers[0].answer);
-            // $('#displayOption2').text(questionAnswers.answers[1].answer);
-            // $('#displayOption3').text(questionAnswers.answers[2].answer);
-            // $('#displayOption4').text(questionAnswers.answers[3].answer);
+            
 
             $('.queNo').text(jsindex+1<=9?`0${jsindex+1}`:jsindex+1);
 
              // persisting values
              var prevValue = user_answers[jsindex];
 
-// console.log('prev',prevValue);
+
 for(let i=0;i<questionAnswers.answers.length;i++){
-// console.log('value:',$('.form-check-input')[i].value);
+
 
 if($('.form-check-input')[i].value == prevValue){
-// console.log('====prev=======');
+
 $('.form-check-input')[i].click();
 }
 
@@ -400,7 +344,7 @@ $('.form-check-input')[i].click();
             console.log('queno.', jsindex+1);
             $('.queNo').text(jsindex+1<=9?`0${jsindex+1}`:jsindex+1);
 
-            // $('.queNo').text(jsindex+1);
+            
         }
 
         });
@@ -410,19 +354,6 @@ $('.form-check-input')[i].click();
             jsindex--;
 
             $('.form-check-input').prop('checked', false);
-
-            // console.log('log', $('.form-check-input')[0]);
-
-            
-
-
-
-            // $('.form-check-input').forEach(option =>{
-            //     console.log(option);
-            // });
-
-           
-
 
             questionAnswers = JSON.parse(data[jsindex].content_text);
 
@@ -452,23 +383,18 @@ $('.form-check-input')[i].click();
             // persisting values
             var prevValue = user_answers[jsindex];
 
-                // console.log('prev',prevValue);
+                
             for(let i=0;i<questionAnswers.answers.length;i++){
-            // console.log('value:',$('.form-check-input')[i].value);
+            
 
     if($('.form-check-input')[i].value == prevValue){
-        // console.log('====prev=======');
+        
         $('.form-check-input')[i].click();
     }
 
 }
 
-            // $('#displayOption1').text(questionAnswers.answers[0].answer);
-            // $('#displayOption2').text(questionAnswers.answers[1].answer);
-            // $('#displayOption3').text(questionAnswers.answers[2].answer);
-            // $('#displayOption4').text(questionAnswers.answers[3].answer);
-            
-            // $('.queNo').text(jsindex+1);
+           
             $('.queNo').text(jsindex+1<=9?`0${jsindex+1}`:jsindex+1);
 
 
@@ -480,7 +406,7 @@ $('.form-check-input')[i].click();
             $('#next').prop('disabled', true)
         }
             
-            // console.log(data[jsindex]);
+            
         }else{
             console.log('array start is reached');
             $('#prev').prop('disabled', true);
@@ -498,40 +424,22 @@ $('.form-check-input')[i].click();
      for(var i=0;i<data.length;i++){
         sideListItem += `<li class='mt-3 pb-2 border-bottom side-list-item'><a class='h6 text-dark text-decoration-none' id='sideQue${i+1}' value='${i}'>${data[i].snippet}</a></li>`
      }
-
-    //  console.log('sideListItem:',sideListItem[0]);
-
-    
-    
-    // console.log('side-list-item:', ($('.side-list-item'))[0]);
-    
-    //  sideListItem[0].addClass('text-primary');
+        
     
     $('ol').html(sideListItem);
-    // $('.side-list-item')[0].addClass('text-primary');
+    
 
     console.log('sideQue1',$('#sideQue1'));
 
     // change color of selected side que
     $('#sideQue1').toggleClass('text-primary');
     $('#sideQue1').removeClass('text-dark');
-
-    // console.log('side-list-item:', $('.side-list-item')[0]);
-
-
-
-
-    // for(var i=0;i<data.length;i++){
-    // $(`#sideQue${i+1}`).text(data[i].snippet);
-    // }
-
-    // $('#sideQue1').text(data[0].snippet)
     
 
     var listItem = $('a');
 
     $('a').on('click', function(e){
-        // console.log('jquery event:',$(e.target).attr('value'));
+        
 
         console.log("$('a'):",$('a'));
 
@@ -557,9 +465,6 @@ $('.form-check-input')[i].click();
             $(e.target).removeClass('text-dark');
             // sideQue highlight END
 
-            // console.log('sideQueColor:',$(`#sideQue${jsindex+1}`).toggleClass('text-primary'));
-            // $(`#sideQue${jsindex+1}`).removeClass('text-dark');
-
             $('#displayQuestion').text(questionAnswers.question);
 
             for(let i=0;i<questionAnswers.answers.length;i++){
@@ -573,7 +478,7 @@ $('.form-check-input')[i].click();
               let user_option = user_answers[jsindex];
                     
               console.log(user_answers);
-            //   console.log('user_option',user_option);
+            
               console.log('jsindex', jsindex);
 
               for(let i=0;i<questionAnswers.answers.length;i++){
@@ -588,33 +493,12 @@ $('.form-check-input')[i].click();
                 }
               }
 
-            //     let prevValue = user_answers[jsindex];
-
-            // console.log('prev',jsindex);
-            // for(let i=0;i<questionAnswers.answers.length;i++){
-            // console.log('value:',$('.form-check-input')[i].value);
-        // $('.form-check-input').prop('checked', false);
-    //    console.log($('.form-check-input')[i].value);
-
-            // if($('.form-check-input')[i].value == prevValue){
-            // console.log('====prev=======');
-            // $('.form-check-input')[i].click();
-            // }
-
-// }
-
-            // $('#displayQuestion').text(questionAnswers.question);
-            // $('#displayOption1').text(questionAnswers.answers[0].answer);
-            // $('#displayOption2').text(questionAnswers.answers[1].answer);
-            // $('#displayOption3').text(questionAnswers.answers[2].answer);
-            // $('#displayOption4').text(questionAnswers.answers[3].answer);
-
 
             var number = jsindex;
             number++;
 
             console.log(number);
-            // $('.queNo').text(number);
+            
             $('.queNo').text(number<=9?`0${number}`:number);
 
 
@@ -644,7 +528,7 @@ $('.form-check-input')[i].click();
   if (_opened===true && !document.getElementById('local-navbar').contains(e.target) && !document.getElementById('slide-button').contains(e.target)){
     // Clicked in box
     console.log('clicked outside sidelist');
-    // $('#slide-button').click();
+    
     $('#local-navbar').toggleClass('show')
 
 
@@ -652,87 +536,13 @@ $('.form-check-input')[i].click();
   } 
 });
 
-    // $('.outsideList').on('click', function(){
-    //     console.log('clicked outside list');
-
-    //     let _opened = $('#local-navbar').hasClass('show');
-
-    //     if(_opened===true){
-    //         $('#slide-button').click();
-    //         console.log(_opened);
-    //     }
-
-    // });
-
-//     $(document).ready(function(){
-//     $(document).click(function (event) {
-//         let clickover = $(event.target);
-//         let _opened = $('#local-navbar').hasClass('show');
-
-        
-//         if (_opened === true && !clickover.hasClass("local-navbar")) {
-//             // console.log(_opened);
-//             // $("button.navbar-toggle").click();
-//             // $('#slide-button').click();
-//             // $('#local-navbar').removeClass('show');
-//         }
-
-//     });
-// })
-//     console.log('sidebarContainer:', sidebarContainer);
-// $(document).click(function(e){
-//         let sidebarContainer = $('#local-navbar');
-
-//         // if the target of the click isn't the container nor a descendant of the container
-//     if (!sidebarContainer.is(e.target) && sidebarContainer.has(e.target).length === 0){
-//         $('#slide-button').click();
-//         console.log('outside the sideList');
-
-//     }
-
-//     })
     
     // hide sideList when clicked outside END
 
     console.log(listItem);
 
 
-    // for(var i=0;i<=11;i++){
-    //    console.log(listItem[i]);
-
-    //    listItem[i].addEventListener('click', function(e){
-    //         console.log($(e.target).attr('value'));
-
-    //         jsindex = $(e.target).attr('value');
-    //         questionAnswers = JSON.parse(data[jsindex].content_text);
-    //         $('#displayQuestion').text(questionAnswers.question);
-    //         $('#displayOption1').text(questionAnswers.answers[0].answer);
-    //         $('#displayOption2').text(questionAnswers.answers[1].answer);
-    //         $('#displayOption3').text(questionAnswers.answers[2].answer);
-    //         $('#displayOption4').text(questionAnswers.answers[3].answer);
-
-    //         var number = jsindex;
-    //         number++;
-
-    //         console.log(number);
-    //         $('.queNo').text(number);
-
-    //         if(jsindex==0){
-    //         $('#prev').prop('disabled', true)
-    //         $('#next').prop('disabled', false)
-
-    //     }else if(jsindex==10){
-    //         $('#next').prop('disabled', true)
-    //         $('#prev').prop('disabled', false)
-
-    //     }else{
-    //         $('#prev').prop('disabled', false)
-    //         $('#next').prop('disabled', false)
-    //     }
-
-
-    //    })
-    // }
+   
 
     // CHECKING OPTIONS START
 
@@ -757,9 +567,7 @@ $('.form-check-input')[i].click();
 
         console.log($('.answer_input').text());
 
-        // $('.form-check-input').on('click', function(e){
-        //     console.log('value',$(e.text()));
-        // })
+        
             var user_answers = [];
 
             var filtered_user_answers = [];
@@ -801,7 +609,7 @@ $('.form-check-input')[i].click();
         sessionStorage.setItem('correct_answers', JSON.stringify(correct_answers));
 
         console.log('session-triggered');
-        // console.log(sessionStorage.setItem('user_answer',user_answers));
+        
     });
 
     // session reset
@@ -815,78 +623,8 @@ $('.form-check-input')[i].click();
 
    });
 
-// Timer
-// var minutes = 1, seconds = 50;
-//   jQuery(function(){
-//     jQuery("span.countdown").html(minutes + ":" + seconds);
-//     var count = setInterval(function(){ if(parseInt(minutes) < 0) { clearInterval(count); } else {jQuery("span.countdown").html(minutes + ":" + seconds); if(seconds == 0) { minutes--; if(minutes < 10) minutes = "0"+minutes; seconds = 59;} seconds--; if(seconds < 10) minutes = "0"+seconds;} if(minutes=='0' && seconds=='00'){console.log('timer ended'); clearInterval();} console.log(minutes + ":" + seconds); }, 1000);
-//   });
-
-// var minutes = 0; // set the minutes
-//     var seconds = 05; // set the seconds
-//     var countdown = setInterval(function() {
-//       if (seconds == 0) {
-//         minutes--;
-//         seconds = 59;
-//       } else {
-//         seconds--;
-//       }
-//       document.getElementById("timer").innerHTML = minutes + ":" + seconds;
-//       if (minutes == 0 && seconds == 00) {
-//         clearInterval(countdown);
-//         document.getElementById("endTest").click();
-//       }
-//     }, 1000);
 
 
- // hide sideList when clicked elsewhere
-    
-//  function endTest(){
-//     // $('#finalEndTest').click();
-//     window.location.replace("resultPage.php");
-//  }
- 
-
-// var timer2 = "00:05";
-// var interval = setInterval(function() {
-
-
-//   var timer = timer2.split(':');
-//   //by parsing integer, I avoid all extra string processing
-//   var minutes = parseInt(timer[0], 10);
-//   var seconds = parseInt(timer[1], 10);
-//   --seconds;
-//   minutes = (seconds < 0) ? --minutes : minutes;
-//   if (minutes < 0 && seconds==00) clearInterval(interval);
-//   seconds = (seconds < 0) ? 59 : seconds;
-//   seconds = (seconds < 10) ? '0' + seconds : seconds;
-//   //minutes = (minutes < 10) ?  minutes : minutes;
-//   $('#timer').html(minutes + ':' + seconds);
-//   timer2 = minutes + ':' + seconds;
-
-//   if(minutes=='0' && seconds=='00'){
-    
-//     // console.log('timer ended');
-//     // $('#endTest').click();
-//     $('#finalEndTest').click();
-
-
-//     // console.log('#finalEndTest: ',$('#finalEndTest').click());
-//     // $('#finalEndTest').click();
-//     // window.location.replace("resultPage.php");
-//     // window.location.href = "resultPage.php";
-//     // endTest();
-//     // $('#finalEndTest').click();
-//     // $(location).attr('href', 'resultPage.php')
-//     clearInterval(interval);
-//   }
-// }, 1000);
-
-
-
-// if(timer == '')
-
-// const time = new Date();
 
 
 
