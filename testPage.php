@@ -234,14 +234,14 @@
 
         var jsindex = 0;
 
-        console.log(jsindex);
+
 
 
 
 
         $.getJSON('question.json', function (data) {
 
-            console.log(data);
+
 
             var questionAnswers = JSON.parse(data[jsindex].content_text);
 
@@ -262,9 +262,9 @@
         `;
 
             }
-            console.log('optionsHtml:', optionsHtml);
+
             $('.options').append(optionsHtml);
-            console.log('.options:', $('.options'));
+
             // make options dynamically END
 
 
@@ -282,7 +282,7 @@
 
 
             $('#next').on('click', function () {
-                console.log('data.length:', data.length);
+
                 if (jsindex < data.length - 1) {
                     jsindex++;
 
@@ -291,7 +291,7 @@
 
                     questionAnswers = JSON.parse(data[jsindex].content_text);
 
-                    console.log(questionAnswers);
+
                     $('#displayQuestion').text(questionAnswers.question);
 
                     for (let i = 0; i < questionAnswers.answers.length; i++) {
@@ -343,10 +343,10 @@
 
 
                 } else if (jsindex == data.length - 1) {
-                    console.log('array end is reached');
+
                     $('#next').prop('disabled', true);
 
-                    console.log('queno.', jsindex + 1);
+
                     $('.queNo').text(jsindex + 1 <= 9 ? `0${jsindex + 1}` : jsindex + 1);
 
 
@@ -364,7 +364,7 @@
 
                     $('#displayQuestion').text(questionAnswers.question);
 
-                    console.log('option length', questionAnswers.answers.length);
+
 
                     for (let i = 0; i < questionAnswers.answers.length; i++) {
                         $(`#displayOption${i + 1}`).html(questionAnswers.answers[i].answer);
@@ -413,7 +413,7 @@
 
 
                 } else {
-                    console.log('array start is reached');
+
                     $('#prev').prop('disabled', true);
                 }
             });
@@ -434,7 +434,7 @@
             $('ol').html(sideListItem);
 
 
-            console.log('sideQue1', $('#sideQue1'));
+
 
             // change color of selected side que
             $('#sideQue1').toggleClass('text-primary');
@@ -446,7 +446,7 @@
             $('a').on('click', function (e) {
 
 
-                console.log("$('a'):", $('a'));
+
 
 
 
@@ -482,17 +482,17 @@
 
                 let user_option = user_answers[jsindex];
 
-                console.log(user_answers);
 
-                console.log('jsindex', jsindex);
+
+
 
                 for (let i = 0; i < questionAnswers.answers.length; i++) {
-                    console.log('user_option', user_option);
 
-                    console.log("$('.form-check-input')[i].value", $('.form-check-input')[i].value);
+
+
 
                     if ($('.form-check-input')[i].value == user_option) {
-                        console.log('value:', $('.form-check-input')[i].value);
+
                         $('.form-check-input')[i].click();
 
                     }
@@ -502,7 +502,7 @@
                 var number = jsindex;
                 number++;
 
-                console.log(number);
+
 
                 $('.queNo').text(number <= 9 ? `0${number}` : number);
 
@@ -532,19 +532,19 @@
 
                 if (_opened === true && !document.getElementById('local-navbar').contains(e.target) && !document.getElementById('slide-button').contains(e.target)) {
                     // Clicked in box
-                    console.log('clicked outside sidelist');
+
 
                     $('#local-navbar').toggleClass('show')
 
 
-                    console.log(_opened);
+
                 }
             });
 
 
             // hide sideList when clicked outside END
 
-            console.log(listItem);
+
 
 
 
@@ -560,17 +560,17 @@
                 for (var j = 0; j < questionAnswers.answers.length; j++) {
                     if (questionAnswers.answers[j].is_correct == 1) {
 
-                        console.log(questionAnswers.answers[j].id);
+
                         correct_answers.push(questionAnswers.answers[j].id);
                     }
                 }
             }
 
-            console.log('correct_answers:', correct_answers);
 
 
 
-            console.log($('.answer_input').text());
+
+
 
 
             var user_answers = [];
@@ -579,20 +579,16 @@
             var attempted = 0;
 
             $('.answer_input').on('click', function (e) {
-                console.log($(e.target).attr('value'));
+
 
                 user_answers[jsindex] = $(e.target).attr('value');
-                console.log('user_answers:', user_answers);
+
 
                 filtered_user_answers = user_answers.filter(Boolean);
 
-                console.log(filtered_user_answers);
+
 
                 attempted = filtered_user_answers.length;
-
-
-                console.log(user_answers.length);
-                console.log('attempted', attempted);
             });
 
             // check options
@@ -613,13 +609,12 @@
                 sessionStorage.setItem('user_answers', JSON.stringify(user_answers));
                 sessionStorage.setItem('correct_answers', JSON.stringify(correct_answers));
 
-                console.log('session-triggered');
+
 
             });
 
             // session reset
             $('#reset').on('click', function () {
-                console.log('session clear triggered');
                 sessionStorage.clear();
 
             });
