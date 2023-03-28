@@ -3,7 +3,8 @@
 <head>
     <title>Result Page</title>
 
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+        integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
 </head>
 
 
@@ -12,252 +13,221 @@
     <div class='p-2'>
         <div class='row w-100'>
             <div class='col-2'>
-            <a href='index.php'><img class='clearSession' src='https://www.ucertify.com/layout/themes/bootstrap4/images/logo/ucertify_logo.png'></a>
-</div>
+                <a href='index.php'><img class='clearSession'
+                        src='https://www.ucertify.com/layout/themes/bootstrap4/images/logo/ucertify_logo.png'></a>
+            </div>
 
-<div class='col-8'>
-            <h1 class='text-center'>uCertify Test Prep</h1>
-</div>
-</div>
-
-</div>
-
-<div class='container'>
-
-    <h2 class='text-center border-bottom border-dark py-4'>
-       Test Results
-</h2>
-
-    <div class='row mt-3'>
-        <!-- <div class='col-12'> -->
-        <div class='d-flex justify-content-center col-12'>
-        <button class='col-2 btn btn-lg btn-basic mx-1 bg-light border border-primary'><div class='text-info displayResult'>0%</div><span class='text-dark'>Result</span></button>
-        <button class='col-2 btn btn-lg btn-basic mx-1 bg-light border border-primary'><div class='text-primary displayItems'>0</div><span class='text-dark'>Items</span></button>
-        <button class='col-2 btn btn-lg btn-basic mx-1 bg-light border border-primary'><div class='text-success displayCorrect'>0</div><span class='text-dark'>Correct</span></button>
-        <button class='col-2 btn btn-lg btn-basic mx-1 bg-light border border-primary'><div class='text-danger displayIncorrect'>0</div><span class='text-dark'>Incorrect</span></button>
-        <button class='col-2 btn btn-lg btn-basic mx-1 bg-light border border-primary'><div class='text-warning displayUnattempted'>0</div><span class='text-dark'>Unattempted</span></button>
-        <!-- </div> -->
-
-</div>
+            <div class='col-8'>
+                <h1 class='text-center'>uCertify Test Prep</h1>
+            </div>
+        </div>
 
     </div>
 
-    <!-- result table START -->
+    <div class='container'>
+
+        <h2 class='text-center border-bottom border-dark py-4'>
+            Test Results
+        </h2>
+
+        <div class='row mt-3'>
+            <!-- <div class='col-12'> -->
+            <div class='d-flex justify-content-center col-12'>
+                <button class='col-2 btn btn-lg btn-basic mx-1 bg-light border border-primary'>
+                    <div class='text-info displayResult'>0%</div><span class='text-dark'>Result</span>
+                </button>
+                <button class='col-2 btn btn-lg btn-basic mx-1 bg-light border border-primary'>
+                    <div class='text-primary displayItems'>0</div><span class='text-dark'>Items</span>
+                </button>
+                <button class='col-2 btn btn-lg btn-basic mx-1 bg-light border border-primary'>
+                    <div class='text-success displayCorrect'>0</div><span class='text-dark'>Correct</span>
+                </button>
+                <button class='col-2 btn btn-lg btn-basic mx-1 bg-light border border-primary'>
+                    <div class='text-danger displayIncorrect'>0</div><span class='text-dark'>Incorrect</span>
+                </button>
+                <button class='col-2 btn btn-lg btn-basic mx-1 bg-light border border-primary'>
+                    <div class='text-warning displayUnattempted'>0</div><span class='text-dark'>Unattempted</span>
+                </button>
+                <!-- </div> -->
+
+            </div>
+
+        </div>
+
+        <!-- result table START -->
         <table class='table table-striped mt-4'>
 
-    <thead>
-        <th>S.no.</th>
-        <th>Question snippet</th>
-        <th>Answer</th>
-        <th>Status</th>
-    </thead>
+            <thead>
+                <th>S.no.</th>
+                <th>Question snippet</th>
+                <th>Answer</th>
+                <th>Status</th>
+            </thead>
 
-    <tbody>
-        
-       
+            <tbody>
 
-    </tbody>
+
+
+            </tbody>
 
 
         </table>
 
-    <!-- result table END -->
-    
-    <div class='d-flex justify-content-end'>
-            <!-- <a href='/php-project/resultPage.php' class='btn m-2 btn-danger btn-lg'>Results</a> -->
-            <a href='/php-project/index.php' class='btn my-2 mr-0 btn-warning btn-lg text-white clearSession'> Go Back</a> 
+        <!-- result table END -->
+
+        <div class='d-flex justify-content-end'>
+
+            <a href='/php-project/index.php' class='btn my-2 mr-0 btn-warning btn-lg text-white clearSession'> Go
+                Back</a>
         </div>
 
 
-</div>
+    </div>
 
 
-<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct"
+        crossorigin="anonymous"></script>
 
-<script>
-
-
-var jsindex = 0;
-
+    <script>
 
 
-$.getJSON('question.json', function(data){
-
-   
-
-    // checking answers
-
-    // var correct_answers = [];
-    //     for(var i=0;i<data.length;i++){
-    //         questionAnswers = JSON.parse(data[i].content_text);
-
-            
-    //         for(var j=0;j<questionAnswers.answers.length;j++){
-    //         if(questionAnswers.answers[j].is_correct==1){
-                
-    //             console.log(questionAnswers.answers[j].answer);
-    //             correct_answers.push(questionAnswers.answers[j].answer);
-    //         }
-    //     }
-    //     }
-
-    //     console.log('correct answers:', correct_answers);
-
-        // sessionStorage.setItem('user_answers',JSON.stringify(user_answers));
-        // sessionStorage.setItem('correct_answers', JSON.stringify(correct_answers));
-
-
-    var correct_answers = JSON.parse(sessionStorage.getItem('correct_answers'));
-    var user_answers =  JSON.parse(sessionStorage.getItem('user_answers'));
-
-    console.log('correct_answers:',correct_answers);
-    console.log('user_answers:',user_answers);
-
-    // console.log('user_answers:', user_answers);
-
-    var filtered_user_answers = user_answers.filter(Boolean);
-
-    var attempted = filtered_user_answers.length;
-
-    console.log('Attempted:', attempted);
-
-    // display elements
-
-    $('.displayItems').text(data.length);
-
-    $('.displayUnattempted').text(data.length - attempted);
-
-    // correct answers
-        var correct = 0;
-        var incorrect = 0;
-    for(var i=0;i<data.length;i++){
-        if(user_answers[i] && correct_answers[i] == user_answers[i]){
-            correct++;
-        }else if(user_answers[i] && correct_answers[i] != user_answers[i]){
-            incorrect++;
-        }
-    }
-
-    console.log('correct',correct);
-
-    // display correct
-    $('.displayCorrect').text(correct);
-
-    $('.displayIncorrect').text(incorrect);
+        var jsindex = 0;
 
 
 
-    // reset session
-    $('.clearSession').on('click', function(){
-        console.log('session clear triggered');
-        sessionStorage.clear();
-
-    });
-
-
-    var percentage = (correct/data.length)*100;
-
-    console.log('percentage:', percentage);
-
-    var roundOffPercentage = Math.round(percentage * 100) / 100
-
-    console.log(roundOffPercentage);
-    // console.log(user_answers.length);
-
-    $('.displayResult').text(roundOffPercentage + '%');
-
-    
-    
-
-// display table
-var tabrow = ``;
-
-for(var i=0;i<data.length;i++){
-    console.log('tabrow:', user_answers);
-    // tabrow += `<tr><td>${i+1}</td><td><a href='reviewPage.php?que_index=${i}' class='text-dark text-decoration-none'>${data[i].snippet}</a></td><td>${user_answers[i]?user_answers[i]:'Not Attempted'}</td><td>${
-
-       
-    //     user_answers[i]?(user_answers[i]==correct_answers[i]?'Correct':'Incorrect'):'N/A'
-    //     // &&(user_answers[i]==correct_answers[i]?'Correct':'Incorrect')
-    // }</td></tr>`;
-
-    tabrow += `<tr><td>${(i+1)<=9?`0${i+1}`:i+1}</td><td><a href='reviewPage.php?que_index=${i}' class='text-dark text-decoration-none'>${data[i].snippet}</a></td><td class='text-center'>
-    <span class='h6' id='option_${i}_1'>A</span> <span class='h6' id='option_${i}_2'>B </span> <span class='h6' id='option_${i}_3'>C </span> <span class='h6' id='option_${i}_4'>D </span </td><td>${
-
-       
-user_answers[i]?(user_answers[i]==correct_answers[i]?'Correct':'Incorrect'):'Not attempted'
-// &&(user_answers[i]==correct_answers[i]?'Correct':'Incorrect')
-}</td></tr>`;
-
-}
+        $.getJSON('question.json', function (data) {
 
 
 
-console.log(tabrow);
 
-// render html table
-$('tbody').html(tabrow);
 
-// put green color to correct_answers
-// get options and extract index
-// convert index to a,b,c,d
-for(let i=0;i<data.length;i++){
-        let    questionAnswers = JSON.parse(data[i].content_text);
 
-            console.log('questionAnswers:', questionAnswers);
-            
-            for(let j=0;j<questionAnswers.answers.length;j++){
-            if(questionAnswers.answers[j].is_correct==1){
-                // console.log(questionAnswers.answers[j]);
-                // console.log(questionAnswers.answers[j].id);
-                // console.log('id:', questionAnswers.answers[j].id);
-                console.log(j, questionAnswers.answers);
+            var correct_answers = JSON.parse(sessionStorage.getItem('correct_answers'));
+            var user_answers = JSON.parse(sessionStorage.getItem('user_answers'));
 
-                console.log($(`#option_${i}_${j+1}`));
+            console.log('correct_answers:', correct_answers);
+            console.log('user_answers:', user_answers);
 
-                $(`#option_${i}_${j+1}`).addClass('text-success');
 
-                // $(`.option_${questionAnswers.answers[j].id}`).addClass('text-success');
 
-                // console.log(questionAnswers.answers[j].answer);
-                // correct_answers.push(questionAnswers.answers[j].answer);
+            var filtered_user_answers = user_answers.filter(Boolean);
 
-                // put red color to incorrect_answers
-                // if(questionAnswers.answers[j].answer == user_answers[i] && user_answers[i]!=)
+            var attempted = filtered_user_answers.length;
 
-            }else if(questionAnswers.answers[j].is_correct!=1 && questionAnswers.answers[j].id==user_answers[i]){
-                $(`#option_${i}_${j+1}`).addClass('text-danger');
+            console.log('Attempted:', attempted);
+
+            // display elements
+
+            $('.displayItems').text(data.length);
+
+            $('.displayUnattempted').text(data.length - attempted);
+
+            // correct answers
+            var correct = 0;
+            var incorrect = 0;
+            for (var i = 0; i < data.length; i++) {
+                if (user_answers[i] && correct_answers[i] == user_answers[i]) {
+                    correct++;
+                } else if (user_answers[i] && correct_answers[i] != user_answers[i]) {
+                    incorrect++;
+                }
+            }
+
+            console.log('correct', correct);
+
+            // display correct
+            $('.displayCorrect').text(correct);
+
+            $('.displayIncorrect').text(incorrect);
+
+
+
+            // reset session
+            $('.clearSession').on('click', function () {
+                console.log('session clear triggered');
+                sessionStorage.clear();
+
+            });
+
+
+            var percentage = (correct / data.length) * 100;
+
+            console.log('percentage:', percentage);
+
+            var roundOffPercentage = Math.round(percentage * 100) / 100
+
+            console.log(roundOffPercentage);
+
+
+            $('.displayResult').text(roundOffPercentage + '%');
+
+
+
+
+            // display table
+            var tabrow = ``;
+
+            for (var i = 0; i < data.length; i++) {
+                console.log('tabrow:', user_answers);
+
+                tabrow += `<tr><td>${(i + 1) <= 9 ? `0${i + 1}` : i + 1}</td><td><a href='reviewPage.php?que_index=${i}' class='text-dark text-decoration-none'>${data[i].snippet}</a></td><td class='text-center'>
+    <span class='h6' id='option_${i}_1'>A</span> <span class='h6' id='option_${i}_2'>B </span> <span class='h6' id='option_${i}_3'>C </span> <span class='h6' id='option_${i}_4'>D </span </td><td>${user_answers[i] ? (user_answers[i] == correct_answers[i] ? 'Correct' : 'Incorrect') : 'Not attempted'
+
+                    }</td></tr>`;
 
             }
 
 
 
-        // }
-        }
-    }
+            console.log(tabrow);
 
-   
+            // render html table
+            $('tbody').html(tabrow);
+
+            // put green color to correct_answers
+            // get options and extract index
+            // convert index to a,b,c,d
+            for (let i = 0; i < data.length; i++) {
+                let questionAnswers = JSON.parse(data[i].content_text);
+
+                console.log('questionAnswers:', questionAnswers);
+
+                for (let j = 0; j < questionAnswers.answers.length; j++) {
+                    if (questionAnswers.answers[j].is_correct == 1) {
+
+                        console.log(j, questionAnswers.answers);
+
+                        console.log($(`#option_${i}_${j + 1}`));
+
+                        $(`#option_${i}_${j + 1}`).addClass('text-success');
+
+
+
+                    } else if (questionAnswers.answers[j].is_correct != 1 && questionAnswers.answers[j].id == user_answers[i]) {
+                        $(`#option_${i}_${j + 1}`).addClass('text-danger');
+
+                    }
+
+
+
+
+                }
+            }
 
 
 
 
 
-});
+
+
+        });
 
 
 
 
-
-
-    // var tableRow = `<td>1</td>
-    // <td>Question...</td>
-    // <td>A</td>`;
-
-        // $('tr').html(tableRow);
-
-
-</script>
+    </script>
 
 
 </body>
