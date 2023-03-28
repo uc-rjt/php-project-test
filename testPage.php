@@ -320,7 +320,7 @@
                     $('.queNo').text(jsindex + 1 <= 9 ? `0${jsindex + 1}` : jsindex + 1);
 
                     // persisting values
-                    // var prevValue = user_answers[jsindex] ? user_answers[jsindex] : (JSON.parse(sessionStorage.getItem('user_answers')))[jsindex];
+
                     let userAnswer = JSON.parse(sessionStorage.getItem('user_answers'));
                     let prevValue2 = userAnswer[jsindex];
 
@@ -393,9 +393,7 @@
                     // sideQue highlight END
 
                     // persisting values
-                    // var prevValue = user_answers[jsindex];
-                    // var prevValue = user_answers[jsindex] ? user_answers[jsindex] : (JSON.parse(sessionStorage.getItem('user_answers')))[jsindex];
-                    // var prevValue = JSON.parse(sessionStorage.getItem('user_answers'))[jsindex];
+
 
                     let userAnswer = JSON.parse(sessionStorage.getItem('user_answers'));
                     let prevValue2 = userAnswer[jsindex];
@@ -492,10 +490,6 @@
                 }
 
                 // persisting values
-
-                // let user_option = user_answers[jsindex];
-
-
 
                 let userAnswer = JSON.parse(sessionStorage.getItem('user_answers'));
                 let user_option = userAnswer[jsindex];
@@ -638,13 +632,7 @@
 
 
 
-            // prev value click on reload
-            // let js = 0;
-            // // let prevValue1 = user_answers[js] ? user_answers[js] : (JSON.parse(sessionStorage.getItem('user_answers')))[js];
-            // var prevValue1 = JSON.parse(sessionStorage.getItem('user_answers'))[js];
-
-            // console.log(prevValue1);
-
+            // prev value click on reload for que 1
             let userAnswer1 = JSON.parse(sessionStorage.getItem('user_answers')) ? JSON.parse(sessionStorage.getItem('user_answers')) : [];
             let prevValue2 = userAnswer1[0];
 
@@ -655,8 +643,6 @@
                 if ($('.form-check-input')[i].value == prevValue2) {
 
                     $('.form-check-input')[i].click();
-
-                    // console.log($('.form-check-input')[i]);
                 }
 
 
@@ -673,14 +659,6 @@
 
 
         });
-
-
-
-
-
-
-
-
 
 
 
