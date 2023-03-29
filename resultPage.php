@@ -77,7 +77,7 @@
 
         <div class='d-flex justify-content-end'>
 
-            <a href='/php-project/index.php' class='btn my-2 mr-0 btn-warning btn-lg text-white clearSession'> Go
+            <a href='index.php' class='btn my-2 mr-0 btn-warning btn-lg text-white clearSession'> Go
                 Back</a>
         </div>
 

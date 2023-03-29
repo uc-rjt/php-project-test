@@ -131,10 +131,9 @@
                                     class='totalQue'>11</span></button>
 
                             <a id='next' class='px-4 mx-2 py-2 btn btn-outline-primary'>Next</a>
-                            <a id='results' class='px-4 mx-2 py-2 btn btn-danger'
-                                href='/php-project/resultPage.php'>Results</a>
-                            <a class='clearSession px-4 mx-2 py-2 btn btn-warning text-white'
-                                href='/php-project/index.php'>Go Back</a>
+                            <a id='results' class='px-4 mx-2 py-2 btn btn-danger' href='resultPage.php'>Results</a>
+                            <a class='clearSession px-4 mx-2 py-2 btn btn-warning text-white' href='index.php'>Go
+                                Back</a>
                         </div>
 
 

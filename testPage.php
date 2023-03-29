@@ -81,7 +81,7 @@
     <div class='p-2'>
         <div class='row w-100'>
             <div class='col-2'>
-                <a href='index.php'><img id='reset'
+                <a href='index.php' tabindex='-1'><img tabindex='-1' id='reset'
                         src='https://www.ucertify.com/layout/themes/bootstrap4/images/logo/ucertify_logo.png'></a>
             </div>
 
@@ -121,13 +121,13 @@
         <div class="d-flex justify-content-end fixed-bottom bg-light py-3 border-top border-dark">
 
             <div class='mr-5'>
-                <button class='countdown px-4 mx-2 border-0 bg-transparent'><span id='timer'
+                <button tabindex='-1' class='countdown px-4 mx-2 border-0 bg-transparent'><span id='timer'
                         class='js-timeout'>30:00</span></button>
 
                 <button id='slide-button' class='px-4 mx-2 py-2 btn btn-success slide-button'>List</button>
                 <button id='prev' class='px-4 mx-2 py-2 btn btn-outline-primary'>Previous</button>
 
-                <button class='border-0 bg-transparent'><span class='queNo'>01</span> of <span
+                <button tabindex='-1' class='border-0 bg-transparent'><span class='queNo'>01</span> of <span
                         class='totalQue'>11</span></button>
 
                 <button id='next' class='px-4 mx-2 py-2 btn btn-outline-primary'>Next</button>
@@ -200,7 +200,7 @@
         crossorigin="anonymous"></script>
 
     <script>
-        var timer2 = "00:05";
+        var timer2 = "30:00";
 
 
 
@@ -243,6 +243,8 @@
 
 
 
+
+
             var questionAnswers = JSON.parse(data[jsindex].content_text);
 
             $('#displayQuestion').text(questionAnswers.question);
@@ -256,7 +258,7 @@
             for (let i = 0; i < questionAnswers.answers.length; i++) {
                 optionsHtml += `<div class="form-check">
         <label class="form-check-label">
-            <input id='option_${i + 1}' type="radio" class="form-check-input" name="optradio"><span class='answer_input' id='displayOption${i + 1}'>Option ${i + 1}</span>
+            <input id='option_${i + 1}' tabindex='${questionAnswers.answers.length - i}' type="radio" class="form-check-input answer_input" name="optradio"><span class='answer_input' id='displayOption${i + 1}'>Option ${i + 1}</span>
         </label>
         </div>
         `;
@@ -318,15 +320,20 @@
                     $('.queNo').text(jsindex + 1 <= 9 ? `0${jsindex + 1}` : jsindex + 1);
 
                     // persisting values
-                    var prevValue = user_answers[jsindex];
+                    // var prevValue = user_answers[jsindex] ? user_answers[jsindex] : (JSON.parse(sessionStorage.getItem('user_answers')))[jsindex];
+                    let userAnswer = JSON.parse(sessionStorage.getItem('user_answers')) ? JSON.parse(sessionStorage.getItem('user_answers')) : [];
+                    let prevValue2 = userAnswer[jsindex];
+
+                    // console.log('prevValue2: ', prevValue2);
 
 
                     for (let i = 0; i < questionAnswers.answers.length; i++) {
 
 
-                        if ($('.form-check-input')[i].value == prevValue) {
+                        if ($('.form-check-input')[i].value == prevValue2) {
 
                             $('.form-check-input')[i].click();
+                            // $('.form-check-input')[i].prop('checked', true);
                         }
 
                     }
@@ -386,13 +393,19 @@
                     // sideQue highlight END
 
                     // persisting values
-                    var prevValue = user_answers[jsindex];
+                    // var prevValue = user_answers[jsindex];
+                    // var prevValue = user_answers[jsindex] ? user_answers[jsindex] : (JSON.parse(sessionStorage.getItem('user_answers')))[jsindex];
+                    // var prevValue = JSON.parse(sessionStorage.getItem('user_answers'))[jsindex];
+
+                    let userAnswer = JSON.parse(sessionStorage.getItem('user_answers')) ? JSON.parse(sessionStorage.getItem('user_answers')) : [];
+                    let prevValue2 = userAnswer[jsindex];
+
 
 
                     for (let i = 0; i < questionAnswers.answers.length; i++) {
 
 
-                        if ($('.form-check-input')[i].value == prevValue) {
+                        if ($('.form-check-input')[i].value == prevValue2) {
 
                             $('.form-check-input')[i].click();
                         }
@@ -480,10 +493,13 @@
 
                 // persisting values
 
-                let user_option = user_answers[jsindex];
+                // let user_option = user_answers[jsindex];
 
 
 
+                let userAnswer = JSON.parse(sessionStorage.getItem('user_answers')) ? JSON.parse(sessionStorage.getItem('user_answers')) : [];
+
+                let user_option = userAnswer[jsindex];
 
 
                 for (let i = 0; i < questionAnswers.answers.length; i++) {
@@ -573,7 +589,8 @@
 
 
 
-            var user_answers = [];
+            // var user_answers = [];
+            var user_answers = JSON.parse(sessionStorage.getItem('user_answers')) ? JSON.parse(sessionStorage.getItem('user_answers')) : [];
 
             var filtered_user_answers = [];
             var attempted = 0;
@@ -589,7 +606,14 @@
 
 
                 attempted = filtered_user_answers.length;
+
+                // setsession strorge when options are clicked
+                sessionStorage.setItem('user_answers', JSON.stringify(user_answers));
+
+
+
             });
+
 
             // check options
 
@@ -613,6 +637,34 @@
 
             });
 
+
+
+            // prev value click on reload
+            // let js = 0;
+            // // let prevValue1 = user_answers[js] ? user_answers[js] : (JSON.parse(sessionStorage.getItem('user_answers')))[js];
+            // var prevValue1 = JSON.parse(sessionStorage.getItem('user_answers'))[js];
+
+            // console.log(prevValue1);
+
+            let userAnswer1 = JSON.parse(sessionStorage.getItem('user_answers')) ? JSON.parse(sessionStorage.getItem('user_answers')) : [];
+            let prevValue2 = userAnswer1[0];
+
+
+            for (let i = 0; i < questionAnswers.answers.length; i++) {
+
+
+                if ($('.form-check-input')[i].value == prevValue2) {
+
+                    $('.form-check-input')[i].click();
+
+                    // console.log($('.form-check-input')[i]);
+                }
+
+
+            }
+
+
+
             // session reset
             $('#reset').on('click', function () {
                 sessionStorage.clear();
@@ -622,6 +674,7 @@
 
 
         });
+
 
 
 
