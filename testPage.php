@@ -258,11 +258,7 @@
             for (let i = 0; i < questionAnswers.answers.length; i++) {
                 optionsHtml += `<div class="form-check">
         <label class="form-check-label">
-<<<<<<< HEAD
             <input id='option_${i + 1}' tabindex='${questionAnswers.answers.length - i}' type="radio" class="form-check-input answer_input" name="optradio"><span class='answer_input' id='displayOption${i + 1}'>Option ${i + 1}</span>
-=======
-            <input id='option_${i + 1}' type="radio" class="form-check-input answer_input" name="optradio"><span class='answer_input' id='displayOption${i + 1}'>Option ${i + 1}</span>
->>>>>>> 966b487561ef7e4a474a1faa22a41d5ef6d95624
         </label>
         </div>
         `;
@@ -324,13 +320,8 @@
                     $('.queNo').text(jsindex + 1 <= 9 ? `0${jsindex + 1}` : jsindex + 1);
 
                     // persisting values
-<<<<<<< HEAD
                     // var prevValue = user_answers[jsindex] ? user_answers[jsindex] : (JSON.parse(sessionStorage.getItem('user_answers')))[jsindex];
                     let userAnswer = JSON.parse(sessionStorage.getItem('user_answers')) ? JSON.parse(sessionStorage.getItem('user_answers')) : [];
-=======
-
-                    let userAnswer = JSON.parse(sessionStorage.getItem('user_answers'));
->>>>>>> 966b487561ef7e4a474a1faa22a41d5ef6d95624
                     let prevValue2 = userAnswer[jsindex];
 
                     // console.log('prevValue2: ', prevValue2);
@@ -502,16 +493,12 @@
 
                 // persisting values
 
-<<<<<<< HEAD
                 // let user_option = user_answers[jsindex];
 
 
 
                 let userAnswer = JSON.parse(sessionStorage.getItem('user_answers')) ? JSON.parse(sessionStorage.getItem('user_answers')) : [];
 
-=======
-                let userAnswer = JSON.parse(sessionStorage.getItem('user_answers'));
->>>>>>> 966b487561ef7e4a474a1faa22a41d5ef6d95624
                 let user_option = userAnswer[jsindex];
 
 
@@ -650,7 +637,6 @@
 
             });
 
-<<<<<<< HEAD
 
 
             // prev value click on reload
@@ -682,8 +668,6 @@
             // session reset
             $('#reset').on('click', function () {
                 sessionStorage.clear();
-=======
->>>>>>> 966b487561ef7e4a474a1faa22a41d5ef6d95624
 
 
                 // prev value click on reload for que 1
